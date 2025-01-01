@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Hunt for Mr X</title>
+    <link rel="icon" type="image/png" href="C:\Users\Fin\Documents\Website\static\Bucket.png">
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+
+
+
+<body>
+
+    <header>
+        <h1>The Hunt for Mr X</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Brief</a></li>
+            <li><a href="{{ url_for('instructions') }}">Instructions</a></li>
+            <li><a href="{{ url_for('clues') }}">Clues</a></li>
+            <li><a href="{{ url_for('hints_page') }}">Hints</a></li>
+            <button id="toggle-header">Hide</button>
+        </ul>
+    </nav>
+
+
+    <section class="section-brief-letter">
+        <h1>Greetings Agents</h1>
+        <p><br>I'll get straight to the point, we desperately need your help.<br><br>
+
+            The elusive Mr X is causing trouble once again, and I trust I don't need
+            to remind you how dangerous he can be. We need to lock him up once and for
+            all. Find him. Complete this mission by <b>telling me his name.</b><br><br>
+
+            The good news is we've picked up on his virtual paper trail. Unfortunately,
+            it's highly cryptic and we need the best-of-the-best in code crackers to
+            track him down, hence why we've come to you.<br><br>
+
+            It is believed that he is operating with his three henchman. Mr X is too
+            much of a sneaky fucker to catch him alone, so our plan is to pin down these
+            three and use the informaton we get from them to find Mr X once and for all.<br><br>
+
+            The clues they've left behind are shown within this document. As you know,
+            each requires an input to display vital information for following clues.<br><br>
+
+            When you close in on the henchmen, we have discriptions of their appearance
+            to confirm their identities. These can be found below this brief. Finally,
+            we also found a confusing cipher key left behind by the henchman, see if
+            comes in handy. Find it below the henchmen descriptions.<br><br>
+
+            Best of luck agents, the country's security rests in your hands.<br><br>
+
+            Happy hunting,<br><br><br>
+        </p>
+        <h2>M</h2>
+    </section>
+
+
+    <section class="section-default">
+        <p>MR X<br><br>
+
+            - Age: Unknown<br>
+            - Race: Unknown<br>
+            - Anything at all about him: Unknown<br>
+
+    </section>
+
+
+
+    <section class="section-default">
+        <p>HENCHMAN 1<br><br>
+
+            Described by witnesses as:<br><br>
+
+            - Of Asian descent<br>
+            - Short black hair and of slim build<br>
+            - Wears socks with sandals<br>
+            - Has been seen to carry an umbrella<br>
+            - Last seen wearing a white t-shirt and cream trousers, with a light blue handbag</p>
+
+    </section>
+
+    <section class="section-default">
+        <p>HENCHMAN 2<br><br>
+
+            Described by witnesses as:<br><br>
+
+            - Likely aged between 50-65<br>
+            - White man of slim build<br>
+            - Always smiles and waves for photos<br>
+            - Last seen wearing shorts and a blue polo shirt, with an orange cap and black wraparound sunglasses</p>
+
+    </section>
+
+    <section class="section-default">
+        <p>HENCHMAN 3<br><br>
+
+            Described by witnesses as:<br><br>
+
+            - Black man of medium build<br>
+            - Goatee and mustache<br>
+            - Keen fisherman<br>
+            - Known to drive a 1990s Toyota Land Cruiser<br>
+            - Conoisseur of boonie hats, ripped jeans and fleeces since before they were cool</p>
+
+    </section>
+
+
+
+    <div class="centered">
+        <p>
+            By Fin McPartlin
+        </p>
+    </div>
+
+
+
+
+    <script src="{{ url_for('static', filename='scripts/hide_header.js' )}}"></script>
+    <script src="{{ url_for('static', filename='scripts/scroll.js') }}"></script>
+
+</body>
+
+</html>

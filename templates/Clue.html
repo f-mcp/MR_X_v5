@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Hunt for Mr X</title>
+    <link rel="icon" type="image/png" href="static/Bucket.png">
+    <link rel="stylesheet" href="static/css/styles.css">
+    <style>
+        /* General body styling to enforce full viewport usage */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #404040;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, height 0.3s ease;
+        }
+
+        header.collapsed {
+            transform: translateY(-100%);
+            height: 0;
+            padding: 0;
+            visibility: hidden;
+        }
+
+        nav {
+            background-color: #020011;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        nav button {
+            background-color: #020011;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        nav button:hover {
+            background-color: #555;
+        }
+
+        /* Main container to occupy the remaining space */
+        .flex-container {
+            flex-grow: 1;
+            display: flex;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .left-pane {
+            width: 50%;
+            overflow-y: auto;
+            background-color: #1a1a1a;
+            padding: 10px;
+        }
+
+        .resizer {
+            width: 5px;
+            cursor: col-resize;
+            background-color: #ddd;
+            flex-shrink: 0;
+        }
+
+        .right-pane {
+            flex-grow: 1;
+            position: relative;
+            background-color: #f5f5f5;
+            overflow: hidden;
+            cursor: crosshair;
+        }
+
+        #button-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            border: 1px solid #ccc;
+        }
+
+        /* Style for individual buttons (padding is y, x weirdly) */
+        button {
+            padding: 4px 9px;
+            font-size: 14px;
+            cursor: pointer;
+            border: 1px solid #333;
+            background-color: #f1f1f1;
+            transition: background-color 0.3s ease;
+            border-radius: 4px;
+        }
+
+        /* Style for color picker */
+        #color-picker {
+            padding: 5px;
+            margin-top: 0px;
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 1px solid #333;
+        }
+
+
+        /* Group the undo/redo buttons horizontally */
+        #undo-redo-container {
+            display: flex;
+            gap: 0px;
+            /* space between the buttons */
+            width: 100%;
+            /* Ensure both buttons fit within the container */
+        }
+
+        /* Make the erase and clear buttons the same width as the undo/redo group */
+        #button-container button {
+            width: 100%;
+        }
+
+        /* Make Undo/Redo buttons take up equal space together */
+        #undo-redo-container button {
+            width: 48%;
+            /* Adjust to make them fit in the same width as erase/clear */
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        #drawing-pad {
+            position: relative;
+            width: 150%;
+            height: 100%;
+            overflow: auto;
+            background-color: white;
+            border: 1px solid #ccc;
+        }
+
+        #drawing-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="page-header">
+        <h1>The Hunt for Mr X</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Brief</a></li>
+            <li><a href="{{ url_for('instructions') }}">Instructions</a></li>
+            <li><a href="{{ url_for('clues') }}">Clues</a></li>
+            <li><a href="{{ url_for('hints_page') }}">Hints</a></li>
+            <button id="toggle-header">Hide</button>
+        </ul>
+
+    </nav>
+
+    <!-- Flex container for the two panes -->
+    <div class="flex-container">
+        <!-- Left Pane -->
+        <div class="left-pane">
+            <section id="questions-container">
+                {% for key, value in question_store.items() %}
+                <div
+                    class="question {% if value[3] == 0 %}incomplete{% elif value[3] == 1 %}attempted{% else %}completed{% endif %}">
+                    <h2>
+                        {% if loop.index == 3 %}
+                        Clue <i>{{ loop.index }}</i>
+                        {% else %}
+                        Clue {{ loop.index }}
+                        {% endif %}
+                    </h2>
+                    <p>{{ value[0] | safe }}</p>
+                    {% if value[3] == 1 %}
+                    <p>Hint: {{ value[2] }}</p>
+                    {% elif value[3] == 2 %}
+                    <p>Answer: {{ value[1] }}</p>
+                    {% if value[4] %}
+                    {% if value[4].type == 'image' %}
+                    <img src="{{ url_for('static', filename=value[4].content) }}" alt="Dynamic Image" />
+                    {% elif value[4].type == 'string' %}
+                    <p class="correct-answer">{{ value[4].content | safe }}</p>
+                    {% elif value[4].type == 'link' %}
+                    <a href="{{ value[4].url }}" target="_blank">{{ value[4].text }}</a>
+                    {% endif %}
+                    {% endif %}
+                    {% endif %}
+                    {% if value[3] < 2 %} <form method="POST" class="ajax-form">
+                        <input type="hidden" name="question_index" value="{{ key }}">
+                        <label for="answer">Your Answer:</label>
+                        <input type="text" name="answer" required>
+                        <input type="submit" value="Submit">
+                        </form>
+                        {% endif %}
+                </div>
+                {% endfor %}
+            </section>
+        </div>
+
+        <!-- Resizer -->
+        <div class="resizer" id="resizer"></div>
+
+        <!-- Right Pane -->
+        <div class="right-pane">
+            <div id="button-container">
+                <button id="erase-button">Erase</button>
+                <button id="clear-button">Clear</button>
+
+                <!-- Create a container for Undo and Redo buttons to align them horizontally -->
+                <div id="undo-redo-container">
+                    <button id="undo-button">←</button>
+                    <button id="redo-button">→</button>
+                </div>
+
+                <!-- Add color picker -->
+                <input type="color" id="color-picker" title="Pick a color" value="#000000" />
+            </div>
+
+
+
+            <div id="drawing-pad">
+                <canvas id="drawing-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='scripts/hide_header.js' )}}"></script>
+    <script src="{{ url_for('static', filename='scripts/resize_pane.js' )}}"></script>
+    <script src="{{ url_for('static', filename='scripts/notepad.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/scroll.js') }}"></script>
+
+</body>
+
+</html>

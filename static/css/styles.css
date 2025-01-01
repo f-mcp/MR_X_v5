@@ -1,0 +1,232 @@
+/* This file is starting to get a bit long and messy*/
+/* Consider splitting styling chunks into files relevant to certain pages*/
+/* We also need to be aware that much of this isn't being used anymore */
+/* While not necessarily an issue, the above makes this all rather messy, so it'd be good to weed out any unused css elements */
+
+body {
+    font-family: Arial;
+    font-size: large;
+    margin: 0;
+    padding: 0;
+    background-color: #0e0e0e;
+    color: #ffffff;
+}
+
+header {
+    background-color: #333;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    position: sticky;
+    padding: 0;
+    list-style: none;
+    background-color: #020011;
+    text-align: center;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.section-default {
+    margin: 100px;
+    padding: 25px;
+    background-color: #080f0d;
+    color: #eaeaea;
+    border-radius: 8px;
+    border: 1px solid #9e9e9e;
+}
+
+.section-non {
+    margin: 100px;
+    padding: 25px;
+    color: #eaeaea;
+}
+
+.section-brief-letter {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 150px;
+    padding: 45px;
+    background-color: #f0f7bb;
+    color: #0f0f0f;
+    border: 1px solid #9e9e9e;
+}
+
+
+.question {
+    margin-bottom: 80px;
+    /* Adjust this value for more or less space */
+}
+
+.centered {
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    /* Optional: makes the text bold */
+    margin-top: 20px;
+    /* Optional: adds space above the centered text */
+}
+
+/* General Flexbox Container */
+.hints-section {
+    display: flex;
+    flex-direction: row;
+    /* Align rows vertically */
+    align-items: center;
+    /* Center-align items horizontally */
+    padding: 20px;
+    background-color: #030305;
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+/* Container for the Question Hints */
+.hints-container {
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* Allow items to wrap to the next row */
+    justify-content: left;
+    /* Center items horizontally */
+    gap: 20px;
+    /* Space between items */
+    max-width: 100%;
+    margin: 0 auto;
+    align-items: flex-start;
+    /* Align items to the top of the row */
+}
+
+/* Individual Hint Boxes */
+.question-hints {
+    display: flex;
+    flex-direction: column;
+    /* Stack content vertically */
+    align-items: center;
+    /* Center-align text and buttons */
+    width: 250px;
+    /* Fixed width for each box */
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #2f0f0f;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    /* Prevent shrinking */
+    flex-grow: 0;
+    /* Prevent growing */
+}
+
+/* Buttons */
+.hint-button,
+.required-button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #050f2b;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* A Style for Correct Answer (currently unused, but it would be good to section off and highlight some more important outputs) */
+/* Maybe use the flex containers to do this */
+.correct-answer {
+    color: #0056b3
+}
+
+.hint-button:hover,
+.required-button:hover {
+    background-color: #0056b3;
+}
+
+/* Hint List */
+.hints-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    text-align: left;
+    width: 100%;
+    color: #545454;
+}
+
+.hints-list li {
+    background-color: #f8f9fa;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+/* Required Hint */
+.required-hint {
+    font-style: italic;
+    color: #bababa;
+    margin-top: 10px;
+}
+
+.flex-container {
+    display: flex;
+    height: 89vh;
+    /* Adjust height as needed */
+    width: 100%;
+}
+
+.left-pane,
+.right-pane {
+    overflow: auto;
+}
+
+.left-pane {
+    width: 100px;
+    /* Initial width */
+    min-width: 50px;
+    /* Prevent shrinking too much */
+    padding: 20px;
+}
+
+.right-pane {
+    width: calc(100% - 100px);
+    /* Initial width */
+    min-width: 50px;
+    /* Prevent shrinking too much */
+    background-color: antiquewhite;
+    padding: 10px;
+    color: #111111;
+
+}
+
+
+
+.resizer {
+    cursor: ew-resize;
+    background-color: #020011;
+    width: 6px;
+    height: 100%;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .hints-container {
+        flex-direction: column;
+        /* Stack items vertically */
+        align-items: left;
+        /* Center-align all items */
+    }
+
+    .question-hints {
+        width: 100%;
+        /* Make items full-width */
+    }
+}

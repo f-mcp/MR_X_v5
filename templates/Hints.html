@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Hunt for Mr X</title>
+    <link rel="icon" type="image/png" href="C:\Users\Fin\Documents\Website\static\Bucket.png">
+    <link rel="stylesheet" href="static/css/styles.css">
+
+
+</head>
+
+
+
+<body>
+
+    <header>
+        <h1>The Hunt for Mr X</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Brief</a></li>
+            <li><a href="{{ url_for('instructions') }}">Instructions</a></li>
+            <li><a href="{{ url_for('clues') }}">Clues</a></li>
+            <li><a href="{{ url_for('hints_page') }}">Hints</a></li>
+            <button id="toggle-header">Hide</button>
+        </ul>
+    </nav>
+
+
+    <section class="hints-section">
+        <div class="hints-container">
+            {% for question_id in range(1, 15) %}
+            <div class="question-hints" data-question-id="{{ question_id }}">
+                <h2>Question {{ question_id }}</h2>
+                <button class="hint-button" data-hint-level="0">Get Hint</button>
+                <button class="required-button">Clues Required</button>
+                <ul class="hints-list"></ul>
+                <p class="required-hint"></p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+
+
+    <div class="centered">
+        <p>
+            By Fin McPartlin
+        </p>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts/hint_script.js')}}"></script>
+    <script src="{{ url_for('static', filename='scripts/hide_header.js' )}}"></script>
+    <script src="{{ url_for('static', filename='scripts/scroll.js') }}"></script>
+
+</body>
+
+</html>

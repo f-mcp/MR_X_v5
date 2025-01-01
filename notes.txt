@@ -1,0 +1,61 @@
+
+WEBSITE 
+
+
+- Pop up that appears when entered in text input and shift/caps lock is on saying "answers are not case sensitive"
+
+- Map inlay (good idea or no?)
+
+- user login (chatGPT hist)
+
+- hash encryption for above
+
+- figure out how to italicise within the question logs
+    This is done, apart from the '3'. These are loaded as the loop index, not actually contained in question_store
+
+- change q4 clue to be doable for people who didnt go bearded theory
+
+- change css elements within the html pages to separately loaded in so they're not described every time in each file
+
+- hints flex boxes - align them rowwise, but let them expand in the x so that they get wider and wrap around. 
+
+- flow chart that uncovers sections as you progress?
+
+- Maybe put in a notes section (parallel column to clues?) that you can freehand write in and drag around given info/pictures
+    - Also: That you can drag and resize horizontally, so that it can be completely hidden to the right, or enlarged to (nearly?) the whole page
+
+GAME
+
+
+- change incorrect clue on q3 to include 'island'? it still wouldnt be gettable without previous info so can't hurt for clarity
+
+- q11 nop longer works due to missing deer sign on lewis and harris. Ideally need a new deer sign in scotland to use
+
+- fix reddit link to megastorer or just insert the image 
+
+Our mountaintop scientist travels Northwest out of his birth city. 
+On his journey he:
+ crosses the fourth of three bridges,
+ passes the eleventh lake that has no head,
+ skirts around the most remote city in the world, continuing North,
+ passes the battleground that marked the end of the Napoleonic wars,
+ passes the muddled up chirpy lot
+ follows Garry until he can go no further.
+
+
+ - Maybe try it where clues are only revealed once you have the correct information. This Would allow for subsequent clues to be a bit less cryptic
+    in the pursuit of disguising information. It would also hide the What3words info until the last steps when it becomes needed.
+    Worth revising clues if so to ensure good clarity.
+
+- HENCHMAN CARL APPEARS TO HAVE BUGGERED OFF THE MAP. LET'S FIND ANOTHER
+        'Adonias Rodrigues MCM', Mt Swartbankberg, 23°18'41.9"S 14°49'18.4"E
+        
+        New Desc:
+        - Fairly young
+        - Known to be an avid climber
+        - Last seen wearing a purple long sleeved tee and jeans
+        - Enjoys wearing hats that are ill-suited to the weather
+        - Confident swagger
+
+        New Directions:
+        *Don't say filled to the brim, just say he got enough for about an hours drive then headed east*

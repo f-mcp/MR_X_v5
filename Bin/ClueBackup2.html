@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Hunt for Mr X</title>
+    <link rel="icon" type="image/png" href="static/Bucket.png">
+    <link rel="stylesheet" href="static/css/styles.css">
+    <style>
+        .right-pane {
+            position: relative;
+            background-color: #f5f5f5;
+            overflow: hidden;
+            /* Hide content outside the pane */
+            cursor: crosshair;
+            /* Default cursor for drawing */
+        }
+
+
+
+        #drawing-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: white;
+            width: 100%;
+            height: 100%;
+            cursor: crosshair;
+        }
+    </style>
+</head>
+
+
+
+
+<body>
+
+    <header>
+        <h1>The Hunt for Mr X</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('instructions') }}">Instructions</a></li>
+            <li><a href="{{ url_for('clues') }}">Clues</a></li>
+            <li><a href="{{ url_for('hints_page') }}">Hints</a></li>
+        </ul>
+    </nav>
+
+    <!-- Flex container for the two panes -->
+    <div class="flex-container">
+        <!-- Left Pane -->
+        <div class="left-pane">
+            <section id="questions-container">
+                {% for key, value in question_store.items() %}
+                <div
+                    class="question {% if value[3] == 0 %}incomplete{% elif value[3] == 1 %}attempted{% else %}completed{% endif %}">
+                    <h2>
+                        {% if loop.index == 3 %}
+                        Clue <i>{{ loop.index }}</i>
+                        {% else %}
+                        Clue {{ loop.index }}
+                        {% endif %}
+                    </h2>
+
+                    <p>{{ value[0] | safe }}</p>
+                    {% if value[3] == 1 %}
+                    <p>Hint: {{ value[2] }}</p>
+                    {% elif value[3] == 2 %}
+                    <p>Answer: {{ value[1] }}</p>
+                    {% if value[4] %}
+                    {% if value[4].type == 'image' %}
+                    <img src="{{ url_for('static', filename=value[4].content) }}" alt="Dynamic Image" />
+                    {% elif value[4].type == 'string' %}
+                    <p class="correct-answer">{{ value[4].content | safe }}</p>
+                    {% elif value[4].type == 'link' %}
+                    <a href="{{ value[4].url }}" target="_blank">{{ value[4].text }}</a>
+                    {% endif %}
+                    {% endif %}
+                    {% endif %}
+                    {% if value[3] < 2 %} <form method="POST" class="ajax-form">
+                        <input type="hidden" name="question_index" value="{{ key }}">
+                        <label for="answer">Your Answer:</label>
+                        <input type="text" name="answer" required>
+                        <input type="submit" value="Submit">
+                        </form>
+                        {% endif %}
+                </div>
+                {% endfor %}
+            </section>
+        </div>
+
+        <!-- Resizer -->
+        <div class="resizer" id="resizer"></div>
+
+        <!-- Right Pane -->
+        <div class="right-pane" id="drawing-pad">
+            <p>N<br>O<br>T<br>E<br>S
+            </p>
+            <canvas id="drawing-canvas"></canvas>
+        </div>
+
+    </div>
+
+
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='scripts/resize_pane.js')}}"></script>
+
+    <script src="{{ url_for('static', filename='scripts/notepad.js')}}"></script>
+
+    <script src="{{ url_for('static', filename='scripts/scroll.js') }}"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!---Could be Home? Initial instructions for new users to understand the game and layout-->
+<!---Needs changing as still based around colab ui-->
+<!---In fact, do we even need this anymore without the confusing ui of colab? as long as it's intuitive it shouldn't matter-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Hunt for Mr X</title>
+    <link rel="icon" type="image/png" href="C:\Users\Fin\Documents\Website\static\Bucket.png">
+    <link rel="stylesheet" href="static/css/styles.css">
+
+</head>
+
+
+
+<body>
+
+
+    <header>
+        <h1>The Hunt for Mr X</h1>
+    </header>
+
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Brief</a></li>
+            <li><a href="{{ url_for('instructions') }}">Instructions</a></li>
+            <li><a href="{{ url_for('clues') }}">Clues</a></li>
+            <li><a href="{{ url_for('hints_page') }}">Hints</a></li>
+            <button id="toggle-header">Hide</button>
+        </ul>
+    </nav>
+
+
+    <section class="section-non">
+        <h2>About this Website</h2>
+        <p>This game is a hunt similar to that presented by a treasure map. <br>
+            Here, though, the hunt takes place entirely virtually, on your device, through the internet. <br><br>
+
+
+            In order to complete it, you'll have to use various online
+            tools and sites. All of these are free to access, with one definite exception. Without giving too much away,
+            this shouldn't be an issue in most cases.<br><br>
+            I should also say, Google Maps (and Street View by extension) is the bread and butter of this
+            game - if you're stuck, these are a good place to start. So also, don't use Apple maps. It sucks.<br><br>
+
+            Below is a more digestible list of pointers for the game's format:<br><br>
+
+            Clues are numbered, but only so that they can refer to each other easily, you can complete them in any order
+            you like.
+            Be mindful of where you leave each clue, as trails carry on from after answers are inputted.
+            For example, if 'Harry Potter' is an answer to a clue, expect 'Harry Potter' to be used later in
+            the game, if not immediately continued from.<br>
+
+            If you get an answer right, you'll be awarded a piece of information which will be vital to
+            another point in the game - not necessarily the subsequent clue.<br>
+
+            Expect everything to be 'used' once (ie. information given in correct answers will likely only
+            be used once) with the exception of the key presented prior to the clues.<br>
+
+            Lastly, take the names given by Google Street View as belonging to those in the photo, even if
+            this is pretty obviously not the case (it's just a bloody game).<br><br><br>
+
+            Feel free to zap me a message if you get stuck and don't want to give up on a clue just yet.<br><br>
+
+            Other than that, <b>enjoy</b>.</p>
+    </section>
+
+
+    <div class="centered">
+        <p>
+            By Fin McPartlin
+        </p>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts/hide_header.js' )}}"></script>
+
+</body>
+
+</html>
