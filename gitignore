@@ -1,0 +1,6 @@
+# Ignore obsolete files
+home.html
+Bin/
+
+# Ignore app.py so we can run locally in debuug mode
+app.py
