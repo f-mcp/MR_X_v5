@@ -2,7 +2,8 @@
 Define a Clue dictionary
 """
 
-# Format: Question index, Question text, Answer string, Incorrect guess string, Question answered status, Output information
+# Format: Question index, Question text, Answer string, Incorrect guess string, ...
+# ...Question answered status, Output information
 
 question_store = {
     "question1": [
