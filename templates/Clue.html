@@ -10,6 +10,31 @@
     <link rel="icon" type="image/png" href="static/Bucket.png">
     <link rel="stylesheet" href="static/css/styles.css">
     <style>
+            
+        .left-pane,
+        .right-pane {
+            overflow: auto;
+        }
+        
+        .left-pane {
+            width: 100px;
+            /* Initial width */
+            min-width: 50px;
+            /* Prevent shrinking too much */
+            padding: 20px;
+        }
+        
+        .right-pane {
+            width: calc(100% - 100px);
+            /* Initial width */
+            min-width: 50px;
+            /* Prevent shrinking too much */
+            background-color: antiquewhite;
+            padding: 10px;
+            color: #111111;
+        
+        }
+        
         /* General body styling to enforce full viewport usage */
         
         /* This css is only relevant for clue.html so let's keep it here to keep unnessessary parsing to a minimum*/
