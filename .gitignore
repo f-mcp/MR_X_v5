@@ -2,5 +2,5 @@
 home.html
 Bin/
 
-# Ignore app.py so we can run locally in debuug mode
+# Ignore app.py so we can run locally in debug mode
 app.py
