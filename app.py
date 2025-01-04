@@ -2,7 +2,7 @@
 MAIN
 """
 
-
+import os
 from flask import Flask, render_template, request, jsonify
 from questions import question_store
 from hints import hint_store, required_store
@@ -11,7 +11,8 @@ from hints import hint_store, required_store
 
 app = Flask(__name__)
 
-
+app.config['SECRET_KEY'] = os.urandom(24)  # Use a fixed key for production
+app.config['DEBUG'] = False
 
 @app.route('/')
 def home():
@@ -93,4 +94,4 @@ def submit_answer():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
