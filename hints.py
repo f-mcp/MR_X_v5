@@ -69,3 +69,10 @@ required_store = {
     14: "NOOOOOOO",
 
 }
+
+names_store = {
+    "Henchman1": "xb zhang",
+    "Henchman2": "hans hallgren",
+    "Henchman3": "adonias rodrigues mcm",
+    "MR_X": "luka kvaratskhelia",
+}

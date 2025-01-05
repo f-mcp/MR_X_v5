@@ -234,18 +234,15 @@ question_store = {
                                 suspicious individual. They say: <br><br><br>
 
 
-                                'Hallo spioen. ’n Ou het so halfuur gelede met sy 4x4 by my vulstasie ingery. Hierdie dooier het sy 
-                                trok tot op die rand vol petrol gevul en toe gejaag sonder om te betaal, kan jy my help?'<br><br>
+                                'Hallo spioen. ’n Ou het so halfuur gelede met sy 4x4 by my vulstasie ingery. Hierdie idioot 
+                                het sy vragmotor tot op die rand vol petrol gevul en toe weggejaag sonder om te betaal, kan jy my help?'<br><br>
 
-                                'Jy kan na my CCTV kyk as jy wil, dit wys dat hy noord langs die kushoofweg C34 gegaan het. Wat 
-                                hy nie weet nie, is dat die vulstasies langs daardie snelweg almal vervalle is, so hy sal nie brandstof 
-                                kan vul nie en sal waarskynlik sonder petrol voor sy bestemming opraak.'<br><br>
+                                'Jy kan na my kringtelevisie kyk as jy wil, dit wys hy het suidoos na die duinlyn gegaan. 
+                                Gelukkig het ek daarin geslaag om sy baster kar met my geweer te skiet, en ek het sy brandstoftenk getref. 
+                                Sy motor het gesteelde brandstof gepis toe hy weggejaag het. Ek sou sê met 
+                                die koers dat dit uitkom, sal hy gelukkig wees om 'n uur se ry te kry voor hy sonder petrol opraak.'<br><br>
 
-                                'Op 'n vol tenk sal sy trok gewoonlik 'n reikafstand van sowat vyfhonderd kilometer hê, maar 
-                                teen die spoed wat hy gery het, sou ek sê hy sal nie vierhonderd kilometer oorskry voordat hy 
-                                sonder brandstof opraak nie.'<br><br>
-
-                                'Sterkte spioen, ek hoop jy vang die ou. Sê vir hom ek sê hy kan gaan kak in die kaap.' <br><br>
+                                'Sterkte spioen, ek hoop jy vang die ou. Sê vir hom ek het gesê hy kan in die Kaap gaan kak.' <br><br>
 
 
                                 You thank the clerk for their help and repay them for the stolen petrol. You follow their instructions 
@@ -257,20 +254,20 @@ question_store = {
         }
     ],
     "question14": [
-        """Our tuneless musicians have taken you to China. Can you see the man sat 
-                   at his desk? What's his name?""",
-        "Jiang Zupeng",
+        """Our tuneless musicians have taken you to China. You walk north to the fishing park. 
+        What is the park called?""",
+        "huaifang",
         "Incorrect", 0,
         {
             "type": "string",
             "content": """You’ve successfully located Jiang Zupeng, the cousin of 
-                                one of our fugitives. <br><br>He sits in his office where 
-                                you’ve hacked into his PC, unaware that you watch his through his camera, and see his 
-                                correspondence with his cousin on his computer. He will be the key to find Mr X’s henchman. <br><br>
+                                one of our fugitives. <br><br>He sits in the park hunched over his phone, not knowing that 
+                                you’ve hacked into it. He's unaware that you watch him through his camera, and see his 
+                                correspondence with his cousin. He will be the key to find Mr X’s henchman. <br><br>
 
-                                You see that conversation they’ve had so far, as well as Mr Zupeng’s computer’s files, which tell 
+                                You see that conversation they’ve had so far, as well as Mr Zupeng’s files, which tell 
                                 you he is proud of his Chinese zodiac birth animal, <b>the dragon</b>. Unfortunately, you see from their 
-                                conversation that the henchman knows better than to outright reveal is location: <br><br><br>
+                                conversation that the henchman knows better than to outright reveal his location: <br><br><br>
 
 
                                                         I don’t understand, how come you’re in hiding again?<br><br>
@@ -286,7 +283,7 @@ question_store = {
                                                                         Yea I’ve got you. How do I find you?<br><br>
 
                                 Can’t really say here, too risky if they get into your 
-                                computer<br><br>
+                                devices<br><br>
 
                                                                             …You remember our old code though?<br><br>
 
@@ -308,7 +305,7 @@ question_store = {
 
                                 Reading this, you realise you need to act fast, and get to the henchman before his cousin does. 
                                 By the sounds of things, if he beats you to it, you might lose all chance of getting to him, and 
-                                without the capture of all three, the chances of finding Mr X are severely diminished. You work 
+                                without the capture of all three, any chance of finding Mr X are gone. You work 
                                 through the night to crack the code and finally manage to find his location, capturing the henchman. <br><br>
 
                                 WHAT IS HIS NAME? ENTER IN MISSION BRIEF UNDER DESCRIPTIONS""",

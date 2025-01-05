@@ -2,41 +2,48 @@
 WEBSITE 
 
 
-- Pop up that appears when entered in text input and shift/caps lock is on saying "answers are not case sensitive"
+/- Pop up that appears when entered in text input and shift/caps lock is on saying "answers are not case sensitive" not needed
 
-- Map inlay (good idea or no?)
+/- Map inlay (good idea or no?) too limited
 
 - user login (chatGPT hist)
 
 - hash encryption for above
 
-- figure out how to italicise within the question logs
-    This is done, apart from the '3'. These are loaded as the loop index, not actually contained in question_store
+/- figure out how to italicise within the question logs
+/    This is done, apart from the '3'. These are loaded as the loop index, not actually contained in question_store
 
-- change q4 clue to be doable for people who didnt go bearded theory
+/- change q4 clue to be doable for people who didnt go bearded theory
 
 - change css elements within the html pages to separately loaded in so they're not described every time in each file
+     Actually, a better way is to have page specific css (like notepad related stuff for clue.html) in the html file
+     the rest can be in styles. It keeps unnecessary parsing to a min
+     If we find there's a lot of css in any particular html file, we can always create another 'styles' specific to that question
 
 - hints flex boxes - align them rowwise, but let them expand in the x so that they get wider and wrap around. 
 
-- flow chart that uncovers sections as you progress?
+/- flow chart that uncovers sections as you progress? nope
 
 - Maybe put in a notes section (parallel column to clues?) that you can freehand write in and drag around given info/pictures
     - Also: That you can drag and resize horizontally, so that it can be completely hidden to the right, or enlarged to (nearly?) the whole page
+    done, though still could do with some tweaking
+    (outstanding bugs: can't clear text boxes, colors aren't saved on refresh, no notepad info is saved on form submit)
+    It'd also be good to be able to have any given images in this section
+
 
 GAME
 
 
 - change incorrect clue on q3 to include 'island'? it still wouldnt be gettable without previous info so can't hurt for clarity
 
-- q11 nop longer works due to missing deer sign on lewis and harris. Ideally need a new deer sign in scotland to use
+- q11 no longer works due to missing deer sign on lewis and harris. Ideally need a new deer sign in scotland to use
 
 - fix reddit link to megastorer or just insert the image 
 
 Our mountaintop scientist travels Northwest out of his birth city. 
 On his journey he:
  crosses the fourth of three bridges,
- passes the eleventh lake that has no head,
+ passes the lake eleven that has no head,
  skirts around the most remote city in the world, continuing North,
  passes the battleground that marked the end of the Napoleonic wars,
  passes the muddled up chirpy lot
