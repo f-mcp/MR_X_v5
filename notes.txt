@@ -33,6 +33,7 @@ WEBSITE
 
 GAME
 
+- check emojikey fits all the clues - jonah said it didn't work for youtube link?
 
 - change incorrect clue on q3 to include 'island'? it still wouldnt be gettable without previous info so can't hurt for clarity
 
@@ -42,12 +43,19 @@ GAME
 
 Our mountaintop scientist travels Northwest out of his birth city. 
 On his journey he:
- crosses the fourth of three bridges,
+ travels forth on the second syllable of his second university,
  passes the lake eleven that has no head,
- skirts around the most remote city in the world, continuing North,
+ passes the most remote of cities, continuing North,
  passes the battleground that marked the end of the Napoleonic wars,
  passes the muddled up chirpy lot
  follows Garry until he can go no further.
+When the two roads converge once more, he starts counting the metal men on his right, up to his house number as a baby.
+Then he looks to his left for a sign.
+You'll need two more signs to lead you to an airport in which city?
+
+he starts counting the metal men that carry what he worked on so much.
+1, 2, 3, 4... up to his house number as a baby. Then, he looks to his left for a sign.
+You'll need two others to lead you to an airport in which city?
 
 
  - Maybe try it where clues are only revealed once you have the correct information. This Would allow for subsequent clues to be a bit less cryptic

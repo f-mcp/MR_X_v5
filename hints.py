@@ -10,20 +10,22 @@ hint_store = {
     1: ["""What is the tenth letter of the alphabet?""",
         """...and what is the twenty sixth?""", 
         """There's two countries beginning with Z. What sits between them?<br> 
-        (It's not a river)"""],
-    2: ["""Hint 1 for question 2""",
-        """Hint 2 for question 2""", 
-        """Hint 3 for question 2"""],
-    3: ["""Hint 1 for question 3""",
-        """Hint 2 for question 3""", 
-        """Hint 3 for question 3"""],
-    4: ["""Hint 1 for question 4""",
-        """Hint 2 for question 4""", 
-        """Hint 3 for question 4"""],
-    5: ["""Hint 1 for question 5""",
-        """Hint 2 for question 5""", 
-        """Hint 3 for question 5"""],
-    6: ["""Hint 1 for question 6""",
+        (It's not a river)."""],
+    2: ["""It may help to consider domain suffixes.""",
+        """What do dot commercial and dot UK come together to form? 
+        Can you add this to the second work in answer 1?""",
+        """If you've found the website it might help to look <b>about</b> 
+        to find our Chris and his band."""],
+    3: ["""What did you learn from q2 to decipher this clue?""",
+        """A little word substitution will help...""", 
+        """Where in the given country can you find this specific geography? We need the center."""],
+    4: ["""What is bearded theory? If you have that, what are the stages called?""",
+        """Can you see what connects the two acts? Subtract the team to hear a song.""", 
+        """Listen out for a man wishing us all luck. What's his name?"""],
+    5: ["""Try to piece some of the information you've been given so far together. If you're playing a film, you're in the right place.""",
+        """You should have met the old man. Follow his directions and you'll get a number.""", 
+        """Google Maps' 'measure distance' should allow you to draw a radius of your given distance."""],
+    6: ["""You've already met one poem, now look around here to find another.""",
         """Hint 2 for question 6""", 
         """Hint 3 for question 6"""],
     7: ["""Hint 1 for question 7""",
@@ -70,9 +72,9 @@ required_store = {
 
 }
 
-names_store = {
-    "Henchman1": "xb zhang",
-    "Henchman2": "hans hallgren",
-    "Henchman3": "adonias rodrigues mcm",
-    "MR_X": "luka kvaratskhelia",
+names_store = { # Format: Villain id, [Villain name, completion status (0=incomplete, 1=complete)]
+    "Henchman1": ["xb zhang",0],
+    "Henchman2": ["hans hallgren",0],
+    "Henchman3": ["adonias rodrigues mcm",0],
+    "MR_X": ["luka kvaratskhelia",0],
 }

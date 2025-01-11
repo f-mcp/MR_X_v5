@@ -138,10 +138,9 @@ nav ul li a {
     transition: background-color 0.3s ease;
 }
 
-/* A Style for Correct Answer (currently unused, but it would be good to section off and highlight some more important outputs) */
-/* Maybe use the flex containers to do this */
 .correct-answer {
-    color: #0056b3
+    color: #00a329;
+    font-family: courier;
 }
 
 .hint-button:hover,

@@ -2,8 +2,8 @@
 Define a Clue dictionary
 """
 
-# Format: Question index, Question text, Answer string, Incorrect guess string, ...
-# ...Question answered status, Output information
+# Question_store Format: Question index: [Question text, Answer string, Incorrect guess string, ...
+#                               ...Question answered status, Output information]
 
 question_store = {
     "question1": [
@@ -43,8 +43,8 @@ question_store = {
     ],
     "question4": [
         """The bearded theorists met in 2023 at Catton hall. 
-                  Investigate how the last men standing in the meadow 
-                  are familiar with the second to grace the pallet, 
+                  Investigate how the men in the meadow at midnight on Sunday 
+                  are familiar with the second to grace the palleton Friday - 
                   though you'll have to lose the team. What is the name of the man in 
                   the waistcoat who wishes luck to us all?""",
         "Gene Kranz",
@@ -93,7 +93,7 @@ question_store = {
                   can you find one? It may help to remember fr<i>o</i>m where 
                   they originate. If you look 
                   hard enough, the first line's fifth and the second 
-                  line's third looks a little like
+                  line's sixth looks a little like
                   the icon of a constellation called...""",
         "Sagittarius",
         "Incorrect", 0,
@@ -164,7 +164,7 @@ question_store = {
         {
             "type": "link",
             "content": None,
-            "text": "Link",
+            "text": "Correct!",
             "url": "https://youtube.com/shorts/gCR7V-HH9_w",
         }
     ],
@@ -183,11 +183,18 @@ question_store = {
         }
     ],
     "question11": [
-        """What country does the mountaintop scientist hail from? Visit the largest 
-                   town of its largest island. From there, travel North until you're out of 
-                   town and forced to go West. Now pay attention, for when the path turns back 
-                   towards the North, a warning on the left is what you'll need to look out for. 
-                   You'll need two others to lead you to an airport in which city?""",
+        """Our mountaintop scientist travels Northwest out of his birth city. 
+On his journey he:<br><br>
+  - travels forth on the second syllable of his second university,<br>
+  - passes the lake eleven that has no head,<br>
+  - passes the most remote of cities, continuing North,<br>
+  - passes the battleground that marked the end of the Napoleonic wars,<br>
+  - passes the muddled up chirpy lot<br>
+  - follows Garry until he can go no further.<br><br>
+When the two roads converge once more, he starts counting the metal men on his right, 
+up to his house number as a baby.
+Then he looks to his left for a sign.
+You'll need two more signs to lead you to an airport in which city?""",
         "Dubai",
         "Incorrect", 0,
         {
@@ -205,9 +212,51 @@ question_store = {
         "29/05/1948",
         "Incorrect", 0,
         {
-            "type": "image",
+            "type": "twelve",
             "content": "walls.png", # Need to display text as well as image for this one
-            "text": None,
+            "text": """Having learned about Mr X’s henchman’s presence in Havana,
+              you travel there to track him down. You follow his trail to the 
+Caballo Blanco statue, as it’s believed he is laying low in an adjacent house,
+ owned by his mistress. Excited at the 
+prospect of apprehending a henchman and coming one step closer to capturing Mr X, 
+you surround the house with your 
+men and bust down the doors. However, much to your disappointment, no henchman 
+in sight. All you find is a note 
+hidden in a cabinet’s false bottom, presumably from the criminal, addressed to 
+his mistress. It reads:<br><br><br>
+
+
+Mi Amor,<br><br>
+
+They have come looking for me, so I must run. I have already made my way to my 
+first stop, from here I’ll fly to my final 
+destination airport, the location of which you already know. I am to fly there 
+as straight as an arrow, however, I fear they 
+will be waiting for me when I land, so I have a plan. I will never arrive at my
+ destination airport. I will just out of the plane 
+during the flight and parachute to freedom, just like the movie stars. They’ll
+ never know where I end up. <br><br>
+
+I don’t think they’ll find this letter but just in case they do, I can’t say here
+ how where I’m flying from, or how far into the 
+flight I’ll make my daring escape. Instead, use your little trick to find it on
+ the very walls of this room. <br><br>
+
+After I jump, I’ll travel Southwest until I hit the coast, then catch a short ferry
+ to the outer of the two small islands there. 
+That’s where I’ll take my refuge.<br><br>
+
+I hope to see you there soon mi amor, come find me.<br><br>
+
+H<br><br><br>
+
+
+Confused, you look at the walls, which simply show a colourful floral pattern, but 
+on closer inspection you find the hidden message. Other clues have given you the henchman's destination airport
+, so you piece together his path and find the island on which he is hiding.<br><br>
+
+WHAT IS HIS NAME? ENTER IN MISSION BRIEF UNDER DESCRIPTIONS
+""",
             "url": None,
         }
     ],
@@ -254,8 +303,8 @@ question_store = {
         }
     ],
     "question14": [
-        """Our tuneless musicians have taken you to China. You walk north to the fishing park. 
-        What is the park called?""",
+        """Our tuneless musicians have taken you to China. A short walk north 
+        there is a fishing park. What is it called?""",
         "huaifang",
         "Incorrect", 0,
         {

@@ -5,7 +5,7 @@ MAIN
 import os
 from flask import Flask, render_template, request, jsonify
 from questions import question_store
-from hints import hint_store, required_store
+from hints import hint_store, required_store, names_store
 
 
 
@@ -14,12 +14,24 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)  # Use a fixed key for production
 app.config['DEBUG'] = True
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    "HOME FUNCTION"
     print("oh look we're home")
-    condition = True  # Change this to True/False to test rendering
-    return render_template('Brief.html', condition=condition)  # The main page with your HTML
+    if request.method == 'POST':
+        name_index = request.form.get('name_index')
+        name_answer = request.form.get('answer')
+
+        if name_index in names_store:
+            name_data = names_store[name_index]
+            correct_answer = name_data[0]  # Use the first item (name) for comparison
+
+            if name_answer.strip().lower() == correct_answer.lower():
+                name_data[1] = 2  # Mark as correctly guessed
+            else:
+                name_data[1] = 1  # Mark as attempted but incorrect
+
+    return render_template('Brief.html', names_store=names_store)
+
 
 
 
@@ -36,17 +48,21 @@ def clues():
     "CLUES FUNCTION"
     print("clues func")
     if request.method == 'POST':
+        print("1")
         question_index = request.form['question_index']
-        user_answer = request.form['answer']#
+        user_answer = request.form['answer']
 
         # Update the state based on the user's answer
         if question_index in question_store:
+            print("2")
             question_data = question_store[question_index]
             correct_answer = question_data[1]
 
             if user_answer.strip().lower() == correct_answer.lower():
+                print("a")
                 question_data[3] = 2  # Mark as completed
             else:
+                print("b")
                 question_data[3] = 1  # Mark as attempted
 
     return render_template('Clue.html', question_store=question_store)

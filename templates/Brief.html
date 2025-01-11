@@ -20,6 +20,16 @@
         width: 25%;
         background-color: transparent;
         text-align: left;
+        height: 390px;
+    }
+
+    .hidden-inner {
+        opacity:0;
+        width: 25%;
+    }
+
+    body {
+        justify-content: center;
     }
 </style>
 
@@ -54,7 +64,7 @@
             track him down, hence why we've come to you.<br><br>
 
             It is believed that he is operating with his three henchman. Mr X is too
-            much of a sneaky fucker to catch him alone, so our plan is to pin down these
+            much of a sneaky bastard to catch him alone, so our plan is to pin down these
             three and use the informaton we get from them to find Mr X once and for all.<br><br>
 
             The clues they've left behind are shown within this document. As you know,
@@ -72,62 +82,122 @@
         <h2>M</h2>
     </section>
 
-<section class="hints-container">
-    <section class="question-hints"></section>
+    <section class="hints-container">
+        <section class="hidden-inner"></section>
+        
+        
+        <!-- MR X -->
+        <section class="question-hints">
+            <h2>MR X</h2>
+            <p>Described by witnesses as:<br><br>
+                <i>
+                Age: Unknown,<br>
+                Race: Unknown,<br>
+                Appearance: Unknown,<br>
+                Anything about him: Unknown.<br>
+                </i></p>
 
-    <section class="question-hints">
-        <h1>MR X</h1><p><br><br>
+            <form method="POST" action="/">
+                <input type="hidden" name="name_index" value="MR_X">
+                <input type="text" id="mr_x_answer" name="answer" placeholder="What is his name?" required>
+                <button type="submit">Submit</button>
+            </form>
+            <ul>
+                {% if names_store["MR_X"][1] == 2 %}
+                    Correctly guessed! ({{ names_store["MR_X"][0] }})
+                {% elif names_store["MR_X"][1] == 1 %}
+                    Wrong. Come on agent, keep going.
+                {% endif %}
+            </ul>
+        </section>
+    
 
-            <li>Age: Unknown</li><br>
-            - Race: Unknown<br>
-            - Anything at all about him: Unknown<br>
+        <section class="hidden-inner"></section>
 
+        <!-- Henchman 1 -->
+        <section class="question-hints">
+            <h1>Henchman 1</h1>
+            <p>Described by witnesses as:<br><br>
+                <i>
+
+                    Of Asian descent,<br>
+                    Short black hair and cool aura,<br>
+                    Wears socks with sandals,<br>
+                    Has been seen to carry an umbrella,<br>
+                    Last seen wearing a white t-shirt and cream trousers, with a light blue handbag.<br>
+                
+                    </i></p>
+            <form method="POST" action="/">
+                <input type="hidden" name="name_index" value="Henchman1">
+                <input type="text" id="henchman1_answer" name="answer" placeholder="What is his name?" required>
+                <button type="submit">Submit</button>
+            </form>
+            <ul>
+                {% if names_store["Henchman1"][1] == 2 %}
+                    Correctly guessed! ({{ names_store["Henchman1"][0] }})
+                {% elif names_store["Henchman1"][1] == 1 %}
+                    Wrong. Come on agent, keep going.
+                {% endif %}
+            </ul>
+        </section>
+    
+        <!-- Henchman 2 -->
+        <section class="question-hints">
+            <h1>Henchman 2</h1>
+            <p>Described by witnesses as:<br><br>
+                <i>
+                Likely aged between ~50-65,<br>
+                White man of slim build,<br>
+                Always smiles and waves for photos,<br>
+                Last seen wearing shorts and a blue polo shirt, with an orange cap and black wraparound sunglasses.<br>
+                </i></p>
+
+            <form method="POST" action="/">
+                <input type="hidden" name="name_index" value="Henchman2">
+
+                <input type="text" id="henchman2_answer" name="answer" placeholder="What is his name?" required>
+                <button type="submit">Submit</button>
+            </form>
+            <ul>
+                {% if names_store["Henchman2"][1] == 2 %}
+                    Correctly guessed! ({{ names_store["Henchman2"][0] }})
+                {% elif names_store["Henchman2"][1] == 1 %}
+                    Wrong. Come on agent, keep going.
+                {% endif %}
+            </ul>
+        </section>
+    
+        <!-- Henchman 3 -->
+        <section class="question-hints">
+            <h1>Henchman 3</h1>
+            <p>Described by witnesses as:<br><br>
+                <i>
+                    Fairly young,<br>
+                    Known to be an avid climber,<br>
+                    Last seen wearing a purple long sleeved tee and jeans,<br>
+                    Enjoys wearing hats that are ill-suited to the weather,<br>
+                    Confident swagger.<br>
+                </i></p>
+
+            <form method="POST" action="/">
+                <input type="hidden" name="name_index" value="Henchman3">
+                <input type="text" id="henchman3_answer" name="answer" placeholder="What is his name?" required>
+                <button type="submit">Submit</button>
+            </form>
+            <ul>
+                {% if names_store["Henchman3"][1] == 2 %}
+                    Correctly guessed! ({{ names_store["Henchman3"][0] }})
+                {% elif names_store["Henchman3"][1] == 1 %}
+                    Wrong. Come on agent, keep going.
+                {% endif %}
+            </ul>
+        </section>
     </section>
-
-    <section class="question-hints"></section>
-
-
-
-    <section class="question-hints">
-        <h1>HENCHMAN 1</h1><p><br><br>
-
-            Described by witnesses as:<br><br>
-
-            - Of Asian descent<br>
-            - Short black hair and of slim build<br>
-            - Wears socks with sandals<br>
-            - Has been seen to carry an umbrella<br>
-            - Last seen wearing a white t-shirt and cream trousers, with a light blue handbag</p>
-
-    </section>
-
-    <section class="question-hints">
-        <h1>HENCHMAN 2</h1><p><br><br>
-
-            Described by witnesses as:<br><br>
-
-            - Likely aged between 50-65<br>
-            - White man of slim build<br>
-            - Always smiles and waves for photos<br>
-            - Last seen wearing shorts and a blue polo shirt, with an orange cap and black wraparound sunglasses</p>
-
-    </section>
-
-    <section class="question-hints">
-        <h1>HENCHMAN 3</h1><p><br><br>
-
-            Described by witnesses as:<br><br>
-
-            - Black man of medium build<br>
-            - Goatee and mustache<br>
-            - Keen fisherman<br>
-            - Known to drive a 1990s Toyota Land Cruiser<br>
-            - Conoisseur of boonie hats, ripped jeans and fleeces since before they were cool</p>
-
-    </section>
-</section>
-
-
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+<div>
+<img src="static/emojikey.png" width="600">
+</div>
     <div class="centered">
         <p>
             By Fin McPartlin

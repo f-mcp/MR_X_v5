@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>The Hunt for Mr X</title>
-    <link rel="icon" type="image/png" href="static/Bucket.png">
     <link rel="stylesheet" href="static/css/styles.css">
     <style>
             
@@ -93,6 +92,12 @@
             background-color: #f1f1f1;
             transition: background-color 0.3s ease;
             border-radius: 4px;
+        }
+
+        .p2 {
+            text-align: right;
+            color: #00a329;
+            font-family: courier;
         }
 
         /* Style for color picker */
@@ -185,22 +190,25 @@
                         Clue {{ loop.index }}
                         {% endif %}
                     </h2>
-                    <p>{{ value[0] | safe }}</p>
-                    {% if value[3] == 1 %}
-                    <p>Hint: {{ value[2] }}</p>
-                    {% elif value[3] == 2 %}
-                    <p>Answer: {{ value[1] }}</p>
-                    {% if value[4] %}
-                    {% if value[4].type == 'image' %}
+                    <p>{{ value[0] | safe }}</p> <!--Output the question-->
+                    {% if value[3] == 1 %}       <!--If incorrect,-->
+                    <p>{{ value[2] }}</p>        <!--Output "incorrect". (Contained in question_store as there used to be hints here)-->
+                    {% elif value[3] == 2 %}     <!--If correct,-->
+                    <p>Answer: {{ value[1] }}</p>   <!--Output the user's correct answer and give info depending on it's type:-->
+                    {% if value[4] %}               <!--Check info type:-->
+                    {% if value[4].type == 'image' %}   
                     <img src="{{ url_for('static', filename=value[4].content) }}" alt="Dynamic Image" />
                     {% elif value[4].type == 'string' %}
                     <p class="correct-answer">{{ value[4].content | safe }}</p>
                     {% elif value[4].type == 'link' %}
-                    <a href="{{ value[4].url }}" target="_blank">{{ value[4].text }}</a>
+                    <a class="correct-answer" href="{{ value[4].url }}" target="_blank">{{ value[4].text }}</a>
+                    {% elif value[4].type == 'twelve' %}
+                    <p class="correct-answer">{{ value[4].text | safe }}</p><br>
+                    <img src="{{ url_for('static', filename=value[4].content) }}" alt="Dynamic Image" /> 
                     {% endif %}
                     {% endif %}
                     {% endif %}
-                    {% if value[3] < 2 %} <form method="POST" class="ajax-form">
+                    {% if value[3] < 2 %} <form method="POST">
                         <input type="hidden" name="question_index" value="{{ key }}">
                         <label for="answer">Your Answer:</label>
                         <input type="text" name="answer" required>
